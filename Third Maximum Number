@@ -1,0 +1,26 @@
+class Solution {
+   public static int thirdMax(int[] nums) {
+    TreeSet numsSet = new TreeSet();
+    int result = 0;
+    for(int i =0;i<nums.length;i++)
+    {
+    numsSet.add(nums[i]); 
+    }
+    if(numsSet.size() == 3)
+    {
+    Iterator i = numsSet.iterator();
+      List list = new ArrayList<>(numsSet);
+      result = (int) list.get(0);}
+    else if (numsSet.size() < 3)
+    {
+      List list = new ArrayList<>(numsSet);
+      result = (int)list.get(numsSet.size()-1);  
+    }
+    else 
+    {
+     List list = new ArrayList<>(numsSet);
+     result = (int)list.get(numsSet.size()-3);
+    }    
+    return result;   
+   }   
+} 
