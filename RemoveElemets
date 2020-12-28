@@ -1,0 +1,28 @@
+class Solution {
+    public int removeElement(int[] nums, int val) {
+   if (nums.length == 1) {
+      if (nums[0] == val) {
+        return 0;
+      } else {
+        return 1;
+      }
+    }
+     int n = nums.length;
+     int count=0;   
+    for (int i = 0; i < nums.length; i++) {
+      if (nums[i] == val) {
+        count++;
+      }
+    }
+    if (n == count)
+      return 0;
+    if (count == 0)
+      return n;
+    int k = 0;
+    for (int i = 0; i < n; i++) {
+      if (nums[i] != val)
+        nums[k++] = nums[i];
+    }
+   return k;     
+}
+}
