@@ -1,0 +1,39 @@
+class Solution {
+    public int[] sortArrayByParity(int[] A) {
+        if(A.length <=1)
+            {
+                return A; 
+            }
+        else
+            {   
+                int begPointer = 0;
+                int endPointer = A.length-1;
+                while(begPointer<endPointer)
+                {
+                         if((A[begPointer]%2 != 0) && (A[endPointer]%2 == 0) )
+                         {
+                            int temp = A[endPointer];
+                            A[endPointer] = A[begPointer];
+                            A[begPointer] = temp; 
+                            begPointer++;
+                            endPointer--; 
+                         }
+                         else if((A[begPointer]%2 == 0) && (A[endPointer]%2 != 0) )
+                         {
+                            begPointer++; 
+                            endPointer--; 
+                         }
+                         else if((A[begPointer]%2 == 0) && (A[endPointer]%2 == 0))
+                         {
+                              begPointer++;
+                         }
+                         else if((A[begPointer]%2 != 0) && (A[endPointer]%2 != 0))
+                         {
+                              endPointer--;
+                         }
+                         
+                }
+            return A;
+        }
+    }
+}
