@@ -1,0 +1,64 @@
+package Udemyprograms;
+
+import java.util.HashMap;
+import java.util.List;
+
+public class Arrays2GeeksForGeeks {
+  public static int FindMaxSumPath(int[] arr, int[] arr1) {
+    /** initialsing sum1,sum2,result to 0 for storing the sum values **/
+    int i = 0, j = 0;
+    int sum1 = 0, sum2 = 0, result = 0;
+    while (i < arr.length && j < arr1.length) {
+      /** arr[i] is less than arr1[j] sum arr[i] with sum1**/
+      if (arr[i] < arr1[j]) {
+        sum1 += arr[i++];
+      }
+      /** arr1[j] is less than arr[i],sum the arr1[j] with sum2**/
+      else if (arr[i] > arr1[j]) {
+        sum2 += arr1[j++];
+      }
+      /** arr[i] == arr1[j] both array having same common values **/
+      else {
+        /** compare the sum and sum the max with the result **/
+        result += max(sum1, sum2);
+        sum1 = 0;
+        sum2 = 0;
+        /** sum the elements Once all the elements are common elemets in the array **/
+        while (i < arr.length && arr[i] == arr1[j]) {
+          sum1 += arr[i++];
+        }
+        /** sum the elements once all the elements are common in array **/
+        while (j < arr1.length && arr[i] == arr1[j]) {
+          sum2 += arr1[j++];
+        }
+        /**  sum the max of sum1 and sum2 with the result **/
+        result += max(sum1, sum2);
+        sum1 = 0;
+        sum2 = 0;
+      }
+
+    }
+    /** sum the remaining elements after the common elemets **/
+    while (i < arr.length) {
+      sum1 += arr[i++];
+    }
+    /** sum the remaining elemets after the common elements **/
+    while (j < arr1.length) {
+      sum2 += arr1[j++];
+    }
+    result += max(sum1, sum2);
+    /** return result **/
+    return result;
+  }
+
+  public static int max(int sum1, int sum2) {
+    return sum1 > sum2 ? sum1 : sum2;
+  }
+
+  public static void main(String args[]) {
+    int arr[] = {2, 3, 7, 10, 12};
+    int arr1[] = {1, 5, 7, 8};
+
+    System.out.println(FindMaxSumPath(arr, arr1));
+  }
+}
