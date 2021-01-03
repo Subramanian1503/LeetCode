@@ -1,0 +1,38 @@
+package Udemyprograms;
+
+public class ArraysGeeksForGeeks4 {
+
+  public static boolean ifKeyPresent(int[] arr, int key, int size) {
+
+    /** initialise counter =0,res for checking whether we reached the no of size iteration
+     *  iterate a loop
+     *  inside loop check if the element is key
+     *  if yes make res true
+     *  if check we reached the size 
+     *  if yes check whether the res is true make it false;
+     *  if yes continue iteration 
+     */
+    int counter = 0;
+    boolean res = false;
+    for (int i = 0; i < arr.length; i++) {
+      counter++;
+      if (arr[i] == key) {
+        res = true;
+      }
+      if (counter == size || i == arr.length - 1) {
+        if (!res) {
+          return false;
+        }
+        res = false;
+        counter = 0;
+      }
+    }
+    return true;
+  }
+
+  public static void main(String args[]) {
+    int arr[] = { 5, 8, 7, 12, 14, 3, 9};
+    System.out.println(ifKeyPresent(arr, 8, 2));
+  }
+
+}
