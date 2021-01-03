@@ -1,0 +1,34 @@
+package Udemyprograms;
+
+public class ArraysGeeksForGeeks {
+
+  public static int MaximumIndex(int[] arr) {
+    /** declare two pointers front and rear 
+        front = 0,rear = arr.length-1
+        int max = 0;
+        while(front < rear && rear-front >max)
+        if(arr[rear] > arr[front])
+          max = rear-front
+          
+        return max;  
+        **/
+    int rear = arr.length - 1;
+    int front = 0;
+    int max = -1;
+    while ((front < rear) && (rear - front) > max) {
+      if (arr[rear] > arr[front]) {
+        max = rear - front;
+        front++;
+        rear = arr.length - 1;
+      } else {
+        rear--;
+      }
+    }
+    return max;
+  }
+
+  public static void main(String args[]) {
+    int arr[] = {1, 2, 3, 4, 5, 6};
+    System.out.println(MaximumIndex(arr));
+  }
+}
