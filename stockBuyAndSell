@@ -1,0 +1,32 @@
+package Udemyprograms;
+
+public class Array8geeksForGeeks {
+
+  public static int BuyAndSell(int[] arr) {
+    /*
+     * initialise a variable min as 0, max profit;
+     * run a loop
+     * if the current element is less than min update the min
+     * fnd the diff between the current element and min
+     * if greater than the maxprofit
+     * update max profit
+     */
+    int min = Integer.MAX_VALUE;
+    int maxProfit = 0;
+    for (int i = 0; i < arr.length; i++) {
+      if (arr[i] < min) {
+        min = arr[i];
+      }
+      if (maxProfit < (arr[i] - min)) {
+        maxProfit = (arr[i] - min);
+      }
+    }
+    return maxProfit;
+  }
+
+  public static void main(String args[]) {
+    int arr[] = {100, 180, 260, 310, 40, 535, 695};
+    System.out.println(BuyAndSell(arr));
+  }
+
+}
