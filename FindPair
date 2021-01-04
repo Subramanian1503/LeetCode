@@ -15,17 +15,17 @@ public class Array9GeeksForgeeks {
     int partialTarget = Integer.MIN_VALUE;
     int index1 = 0;
     int index2 = 0;
-    while (front < arr.length && front < rear) {
+    while (front < rear) {
       if (arr[front] + arr[rear] <= target && arr[front] + arr[rear] > partialTarget) {
         partialTarget = arr[front] + arr[rear];
         index1 = front;
         index2 = rear;
-      }
-      rear--;
-      if (front == rear) {
+      } else if (arr[front] + arr[rear] < target) {
         front++;
-        rear = arr.length - 1;
+      } else {
+        rear--;
       }
+
     }
     System.out.println(partialTarget + " " + arr[index1] + " " + arr[index2]);
 
