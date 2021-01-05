@@ -1,0 +1,51 @@
+package Udemyprograms;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.TreeSet;
+
+public class Arrays11GeeksForGeeks {
+  public static int FindMaxConsecutive(int[] arr) {
+    /*
+     * initialise a tree set
+     * put the elements of the array in the tree set
+     * iterate the tree set if the element
+     * check for the consecutive elements by checking whether the previous element is -1 of the current element
+     * if s increment count
+     * if no initialise count to 0
+     * check for the max value if the count is incremented initialise to max.
+     * return max
+     */
+    TreeSet<Integer> hash = new TreeSet<Integer>();
+    for (int i = 0; i < arr.length; i++) {
+      hash.add(arr[i]);
+    }
+
+    int previous = 0;
+    int count = 0;
+    int max = 0;
+    boolean flag = true;
+    for (Integer i : hash) {
+      if (flag) {
+        count++;
+        flag = false;
+      } else if (i == previous + 1) {
+        count++;
+      } else {
+        count = 1;
+      }
+      if (max < count) {
+        max = count;
+      } 
+      previous = i;
+    }
+
+    return max;
+  }
+
+  public static void main(String args[]) {
+    int[] arr = {1, 9, 3, 10, 4, 20, 2};
+    System.out.println(FindMaxConsecutive(arr));
+  }
+}
