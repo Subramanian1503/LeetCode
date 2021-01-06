@@ -1,0 +1,36 @@
+package Udemyprograms;
+
+import java.util.Arrays;
+
+public class Arrays12GeeksForGeeks {
+
+  /**
+   * K’th Smallest/Largest Element in Unsorted Array | Set 1
+   */
+
+  public static int FindKthSmallest(int[] arr, int k) {
+    /** 
+     * sort the elements in the array
+     * print the k-1 th element as the index starts from 0
+     */
+    Arrays.sort(arr);
+    return arr[k - 1];
+  }
+
+  public static int FindKthLargest(int[] arr, int k) {
+    /**
+     * sort the elements in the array
+     * print the (arr.length - k element)
+     * 
+     */
+    Arrays.sort(arr);
+    return arr[arr.length - k];
+  }
+
+  public static void main(String args[]) {
+    int[] arr = {7, 10, 4, 3, 20, 15};
+    System.out.println("smallest" + FindKthSmallest(arr, 3));
+    System.out.println("largest" + FindKthLargest(arr, 2));
+  }
+
+}
