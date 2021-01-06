@@ -1,0 +1,37 @@
+package Udemyprograms;
+
+public class Arrays15GeeksForGeeks {
+
+  public static int CountPairsWithGivenSum(int[] arr, int sum) {
+    /**
+     * intialise two pointers front = 0;rear = 0;
+     * intialise the count = 0;
+     * iterate a loop
+     * check whether the sum of the frontElemet and rearElement is meeting the target
+     * if s increase the count
+     * check whether the rear is equal to front 
+     * if s make front++
+     * rear = arr.length
+     */
+    int count = 0;
+    int front = 0, rear = arr.length - 1;
+    while (front < arr.length - 1) {
+      if (arr[front] + arr[rear] == sum) {
+        count++;
+      }
+      rear--;
+      if (front == rear) {
+        front++;
+        rear = arr.length - 1;
+      }
+    }
+    return count;
+  }
+
+  public static void main(String args[]) {
+    int[] arr = {10, 12, 10, 15, -1, 7, 6,
+      5, 4, 2, 1, 1, 1};
+    System.out.println(CountPairsWithGivenSum(arr, 11));
+  }
+
+}
