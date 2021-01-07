@@ -1,0 +1,44 @@
+package Udemyprograms;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Arrays19GeeksForGeeks {
+
+  public static void FirstNonRepetiveElemet(int[] arr) {
+    /**
+    * Declare a HashMap 
+    * iterate a loop
+    * check if the array element is present in the map 
+    * if no Insert the array element in the hashmap with value as 1
+    * if yes increment the value of the key
+    * After iteration over
+    * iterate through map
+    * if the value of the mkey is one 
+    * return key
+    * 
+    */
+    HashMap<Integer, Integer> map = new HashMap<>();
+    for (int i = 0; i < arr.length; i++) {
+      if (map.containsKey(arr[i])) {
+        map.put(arr[i], map.get(arr[i]) + 1);
+      } else {
+        map.put(arr[i], 1);
+      }
+    }
+
+    for (Map.Entry<Integer, Integer> mapValue : map.entrySet()) {
+      if (mapValue.getValue() == 1) {
+        System.out.println(mapValue.getKey());
+        break;
+      }
+    }
+
+  }
+
+  public static void main(String args[]) {
+    int[] arr = {9, 4, 9, 6, 7, 4};
+    FirstNonRepetiveElemet(arr);
+
+  }
+}
