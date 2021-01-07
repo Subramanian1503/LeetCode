@@ -1,0 +1,42 @@
+package Udemyprograms;
+
+public class Arrays18GeeksForGeeks {
+
+  public static void FindFirstRepetation(int[] arr) {
+    /**
+     * initialise two pointers front and rear 
+     * make the front = 0;
+     * make the rear = arr.length-1;
+     * run a while loop with condition(front < arr.length)
+     * check if(arr[front] == arr[rear])
+     * print element and break
+     * else
+     * rear --;
+     * Inside else part check the condition if front == rear
+     * make front++ and rear = arr.length-1;
+     * 
+     */
+
+    int front = 0;
+    int rear = arr.length - 1;
+    while (front < arr.length) {
+      if (arr[front] == arr[rear]) {
+        System.out.println(arr[front]);
+        break;
+      } else {
+        rear--;
+        if (front == rear) {
+          front++;
+          rear = arr.length - 1;
+        }
+      }
+    }
+  }
+  
+  public static void main(String args[])
+  {
+    int[] arr = {10, 5, 3, 4, 3, 5, 6};
+    FindFirstRepetation(arr); 
+  }
+
+}
