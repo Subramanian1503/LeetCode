@@ -1,0 +1,37 @@
+package Udemyprograms;
+
+public class ArraysGeeksForGeeks22 {
+
+  public static boolean FindSubArrayWithSumZero(int[] arr) {
+    /**
+     * initialise two pointers front,rear,sum
+     * make front = 0;
+     * make rear = front;
+     * sum = 0;
+     * iterate a loop
+     * inside the loop add the elements from the rear till arr.lenght
+     * if in any iteration the sum become zero 
+     * print true; 
+     */
+    int front = 0;
+    int rear = front;
+    int sum = 0;
+    while (front < arr.length) {
+      sum += arr[rear++];
+      if (sum == 0) {
+        System.out.println(front + "" + (rear-1));
+        return true;
+      }
+      if (rear == arr.length) {
+        rear = ++front;
+        sum = 0;
+      }
+    }
+    return false;
+  }
+
+  public static void main(String args[]) {
+    int[] arr = {-3, 2, 3, 1, 6};
+    System.out.println(FindSubArrayWithSumZero(arr));
+  }
+}
