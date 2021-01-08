@@ -1,0 +1,30 @@
+package Udemyprograms;
+
+public class Arrays22GeeksForGeeks {
+
+  public static int LargestContigousSubArray(int[] arr) {
+    /**
+     * initialise two pointers current_max and max as arr[0]
+     * itertate a for loop
+     * inside the loop check for the current element and current max
+     * if current element  is greater than current max then assign it as current max 
+     * after that check if current max is greater than max
+     * if yes assign it
+     * return the max
+     */
+
+    int current_max = arr[0];
+    int max = arr[0];
+    for (int i = 1; i < arr.length; i++) {
+      current_max = (current_max + arr[i] < arr[i]) ? arr[i] : current_max + arr[i];
+      max = (max < current_max) ? current_max : max;
+    }
+    return max;
+  }
+
+  public static void main(String args[]) {
+    int[] arr = {-2, -3, 4, -1, -2, 1, 5, -3};
+    System.out.println(LargestContigousSubArray(arr));
+  }
+
+}
