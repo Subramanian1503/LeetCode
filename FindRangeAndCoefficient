@@ -1,0 +1,29 @@
+package Udemyprograms;
+
+import java.text.DecimalFormat;
+
+public class Arrays25GeeksForGeeks {
+
+  public static void FindRangeAndCoEfficient(int[] arr) {
+    int min = Integer.MAX_VALUE;
+    int max = Integer.MIN_VALUE;
+    for (int i = 0; i < arr.length; i++) {
+      if (min > arr[i]) {
+        min = arr[i];
+      }
+      if (max < arr[i]) {
+        max = arr[i];
+      }
+    }
+    DecimalFormat df = new DecimalFormat();
+    df.setMaximumFractionDigits(2);
+    System.out.println("Range = " + (max - min));
+    System.out.println("Coefficient = " + ((double) (max - min) / (double) (max + min)));
+  }
+
+  public static void main(String args[]) {
+    int[] arr = {15, 16, 10, 9, 6, 7, 17};
+    FindRangeAndCoEfficient(arr);
+  }
+
+}
