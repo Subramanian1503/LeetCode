@@ -1,0 +1,18 @@
+package Udemyprograms;
+
+public class Arrays23GeeksForGeeks {
+
+  public static int FindNoOfOccuranceOfX(int[] arr, int x) {
+    int count = 0;
+    for (int i = 0; i < arr.length; i++) {
+      count = x == arr[i] ? ++count : count;
+    }
+    return count;
+  }
+
+  public static void main(String args[]) {
+    int[] arr = {1, 2, 3};
+    int x = 4;
+    System.out.println(FindNoOfOccuranceOfX(arr, x));
+  }
+}
