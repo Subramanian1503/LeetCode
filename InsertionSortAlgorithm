@@ -1,0 +1,40 @@
+package Com.athi.javaExcercise;
+
+public class InsertionSort {
+  /**
+   * 
+   *  we are having a idea of comapring the elements of a nonsorted array with a sorted array.
+   */
+
+  public static void InsertionSort(int[] arr) {
+    /**
+     * here we are starting the iteration with element of index 1 because we are considering the first element of index 0 as a sorted array
+     */
+    for (int i = 1; i < arr.length; i++) {
+      /* making the element to compare as the temp variable */
+      int temp = arr[i];
+      /* assigning the value of j as the index before the element to compare */
+      int j = i - 1;
+      /* checking the elements before the temp variable are greater than temp if greater,assign to a place of index j++ */
+      while (j >= 0 && arr[j] > temp) {
+        /* swapping the variable to the next place */
+        arr[j + 1] = arr[j];
+        /* decrementing the variable to compare the previous value */
+        j--;
+      }
+      /* out of the loop signifies that all the elements greater than temp are swaped to right element */
+      /* Due to j-- before we are assigning temp to arr[j+1] */
+      arr[j + 1] = temp;
+    }
+  }
+
+  public static void main(String args[]) {
+    int[] arr = {5, 4, 6, 8, 4, 2, 1};
+    InsertionSort(arr);
+    for (int i = 0; i < arr.length; i++) {
+      System.out.println(arr[i]);
+
+    }
+  }
+
+}
