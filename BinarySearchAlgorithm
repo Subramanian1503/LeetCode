@@ -1,0 +1,32 @@
+package Algorithms;
+
+public class BinarySearchAlgorithm {
+
+  public static void BinarySearch(int[] arr, int target) {
+    /** taking the mid index of the arr**/
+    int mid = arr.length / 2;
+    /** checking whether the given target to search is less than or greater than the array[mid] element **/
+    if (target < arr[mid]) {
+      /** target is less than the given arr[mid] search fromt the index 0 to mid is enough as it is a sorted array**/
+      for (int i = 0; i < mid; i++) {
+        if (arr[i] == target) {
+          System.out.println(i);
+          break;
+        }
+      }
+    } else {
+      /** target is greater than the given arr[mid] search from the index mid to arr.length is enough as it is a sorted array**/
+      for (int i = mid; i < arr.length; i++) {
+        if (arr[i] == target) {
+          System.out.println(i);
+          break;
+        }
+      }
+    }
+  }
+
+  public static void main(String args[]) {
+    int[] arr = {1, 1, 2, 4, 4, 6};
+    BinarySearch(arr, 2);
+  }
+}
