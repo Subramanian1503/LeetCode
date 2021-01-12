@@ -1,0 +1,71 @@
+package Algorithms;
+
+public class MergeSortAlgorithm {
+
+  public static void mergeSort() {
+    int[] arr = {4, 7, 8, 1, 2, 9, 6, 4, 1};
+    sort(arr, 0, arr.length - 1);
+    for (int i = 0; i < arr.length; i++) {
+      System.out.println(arr[i]);
+    }
+  }
+
+  public static void sort(int[] arr, int L, int R) {
+    /* comparing the starting index and ending index inorder to break the recursion */
+    if (L < R) {
+      /* calculating the mid element */
+      int mid = (L + R) / 2;
+      /* sorting the element from low to mid */
+      sort(arr, L, mid);
+      /* sorting the elements from mid to high */
+      sort(arr, mid + 1, R);
+      /* merging the sorted arrays */
+      merge(arr, L, mid, R);
+    }
+  }
+
+  public static void merge(int[] arr, int L, int mid, int R) {
+    /* assigning the length for leftArray */
+    int l = mid - L + 1;
+    /* assigning the length of the rightArray */
+    int r = R - mid;
+    /* initialising the leftArray */
+    int[] leftArray = new int[l];
+    /* initialising the rightArray */
+    int[] rightArray = new int[r];
+    /* assigning values to leftArray */
+    for (int i = 0; i < l; ++i) {
+      leftArray[i] = arr[L + i];
+    }
+    /* assigning the values to the rightArray */
+    for (int j = 0; j < r; ++j) {
+      rightArray[j] = arr[mid + 1 + j];
+    }
+    int i = 0;
+    int j = 0;
+    int k = L;
+    /* making condition that i < l and j < r */
+    while (i < l && j < r) {
+      /* if leftArray element is lessThan or equal tp rightArray */
+      if (leftArray[i] <= rightArray[j]) {
+        arr[k++] = leftArray[i++];
+      } else {
+        arr[k++] = rightArray[j++];
+      }
+    }
+    /* assigning the remaining elements from the leftArray */
+    while (i < l) {
+      arr[k++] = leftArray[i++];
+    }
+    /* assigning the remaining elements from the rightArray */
+    while (j < r) {
+      arr[k++] = rightArray[j++];
+    }
+
+  }
+
+  public static void main(String args[]) {
+    mergeSort();
+  }
+
+}
